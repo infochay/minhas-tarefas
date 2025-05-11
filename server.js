@@ -9,6 +9,11 @@ app.get('/autor', (req, res) => {
         res.send('<h1>Nome do Autor</h1>');
     }
 });
+
+app.get('/', (req, res) => {
+    res.send('<h1>Bem-vindo à API!</h1><p>Acesse <a href="/autor">/autor</a> para ver informações do autor.</p>');
+});
+
 // Inicia o servidor
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
