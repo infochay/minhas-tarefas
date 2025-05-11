@@ -3,16 +3,25 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "express": "^5.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infochay/minhas-tarefas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/infochay/minhas-tarefas/issues"
+  },
+  "homepage": "https://github.com/infochay/minhas-tarefas#readme",
+  "description": ""
 }
