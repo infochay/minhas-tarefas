@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <title>Lista de Tarefas</title>
+</head>
+<body>
+ <h1>Minha Lista de Tarefas</h1>
+ <ul id="lista-tarefas"></ul>
+ <h2>Adicionar Tarefa</h2>
+ <input type="text" id="titulo" placeholder="Título da tarefa">
+ <button onclick="adicionarTarefa()">Adicionar</button>
+ <script>
+ const API_URL = 'http://localhost:3000/tarefas';
+ function carregarTarefas() {
+ fetch(API_URL)
+ .then(response => response.json())
+ .then(tarefas => {
+ const lista = document.getElementById('lista-tarefas');
+ lista.innerHTML = '';
+ tarefas.forEach(tarefa => {
+ const item = document.createElement('li');
+ item.textContent = tarefa.titulo + (tarefa.concluida ? " Sim : " Não");
+ lista.appendChild(item);
+ });
+ });
+ }
+ function adicionarTarefa() {
+ const titulo = document.getElementById('titulo').value;
+ fetch(API_URL, {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/json' },
+ body: JSON.stringify({ titulo: titulo, concluida: false })
+ }).then(() => carregarTarefas());
+ }
+ carregarTarefas();
+ </script>
+</body>
+</html>
